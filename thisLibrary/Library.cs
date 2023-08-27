@@ -6,11 +6,15 @@ namespace thisLibrary
 {
     public class Library
     {
+        public string LibraryName;
+        
         // skapa en tom lista med böcker
         public List<Book> Books;
 
-        public Library()
+        public Library(string libraryName)
         {
+            LibraryName = libraryName;
+            
             Books = new List<Book>();
         }
     }
