@@ -29,8 +29,19 @@ public class iFace {
                 f.AddLibrary();
                 iFace.Start();
                 break;
-                
-        }
+            case "4":
+                break;
+            
+            case "5":
+                f.LookInsideLibrary();
+                iFace.Start();
+                break;
+            default:
+                Console.WriteLine("Error. Please try again.");
+                Console.ReadLine();
+                iFace.Start();
+                break;
+        } 
         
     }
 }
