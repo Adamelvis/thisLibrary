@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace thisLibrary
 {
@@ -8,10 +7,9 @@ namespace thisLibrary
         
         static void Main(string[] args)
         {
-            // Create a list of libraries
-            public List<Library> Libraries = new List<Library>();
 
-            iFace.Start(); 
+            // Code is now cleaner
+
         }
     }
 }
