@@ -30,6 +30,7 @@ public class iFace {
                 iFace.Start();
                 break;
             case "4":
+                f.RemoveLibrary();
                 break;
             
             case "5":

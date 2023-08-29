@@ -14,7 +14,52 @@ public class f
         Console.ReadLine();
 
     }
-    public static void RemoveLibrary(){}
+
+    public static void RemoveLibrary()
+    {
+        if (Program.Libraries.Count > 0)
+        {
+            Console.WriteLine("What library would you like to remove?");
+
+
+            // lista alla bibleotek
+            for (int i = 0; i < Program.Libraries.Count(); i++)
+            {
+                Console.WriteLine((i + 1).ToString() + ". " + Program.Libraries[i].LibraryName);
+            }
+
+            var input = int.Parse(Console.ReadLine()) - 1;
+            Library selectedLibraryName = Program.Libraries[input];
+
+            Console.WriteLine("Are you sure you want to remove " + selectedLibraryName.LibraryName + "?");
+            Console.WriteLine("1. yes");
+            Console.WriteLine("2. no");
+
+            var answer = int.Parse(Console.ReadLine());
+            switch (answer)
+            {
+                case 1:
+                    Program.Libraries.Remove(selectedLibraryName);
+                    Console.WriteLine("Library removed!");
+                    Console.ReadLine();
+                    iFace.Start();
+                    break;
+                case 2:
+                    iFace.Start();
+                    break;
+                default:
+                    Console.WriteLine("Error. Please try again!");
+                    iFace.Start();
+                    break;
+            }
+        }
+        else
+            {
+                Console.WriteLine("No library to delete!");
+                Console.ReadLine();
+                iFace.Start();
+            }
+    }
 
     public static void LookInsideLibrary()
     {
@@ -165,6 +210,58 @@ public class f
     }
     public static void RemoveBooks()
     {
-        
+        if (Program.Libraries.Count > 0)
+        {
+            Console.WriteLine("What library would you like to remove a book in?");
+
+                
+            // lista alla bibleotek
+            for (int i = 0;i < Program.Libraries.Count(); i++)
+            {
+                Console.WriteLine((i + 1).ToString() + ". " + Program.Libraries[i].LibraryName);
+            }
+
+            var input = int.Parse(Console.ReadLine()) - 1;
+            Library selectedLibraryName = Program.Libraries[input];
+            
+            if (selectedLibraryName.Books.Count() > 0)
+            {
+                Console.WriteLine("What book would you like to remove?");
+                
+                // lista alla böcker innuti bibleoteket
+                for (int i = 0;i < selectedLibraryName.Books.Count(); i++)
+                {
+                    var title = selectedLibraryName.Books[i].Title;
+                    var author = selectedLibraryName.Books[i].Author;
+                    Console.WriteLine((i + 1).ToString() + ": " + title + " by " + author);
+                }
+
+                var answer = int.Parse(Console.ReadLine());
+
+                for(int i = 0; i < selectedLibraryName.Books.Count(); i++)
+                {
+                    if (answer == i + 1)
+                    {
+                        selectedLibraryName.Books.Remove(selectedLibraryName.Books[i]);
+                        Console.WriteLine("Book removed!");
+                        Console.ReadLine();
+                        iFace.Start();
+                    }
+                }
+                
+            }
+            else
+            {
+                Console.WriteLine("No books here to remove!");
+                Console.ReadLine();
+                iFace.Start();
+            }
+        }
+        else
+        {
+            Console.WriteLine("No libraries exist.");
+            Console.ReadLine();
+        }
+
     }
 }
